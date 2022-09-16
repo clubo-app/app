@@ -25,6 +25,9 @@ data class Party(
     @SerialName("max_participants")
     val maxParticipants: Int,
 
+    @SerialName("participation_status")
+    val participationStatus: ParticipationStatus?,
+
     @SerialName("street_address")
     val streetAddress: String,
 
@@ -103,4 +106,16 @@ data class UpdatePartyRequest(
 
     @SerialName("entry_date")
     val entryDate: LocalDateTime,
+)
+
+@Serializable
+data class ParticipationStatus(
+    val requested: Boolean,
+    val participating: Boolean,
+
+    @SerialName("requested_at")
+    val requestedAt: LocalDateTime?,
+
+    @SerialName("joined_at")
+    val joinedAt: LocalDateTime?,
 )
