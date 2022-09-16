@@ -4,6 +4,7 @@ object Versions {
     const val koin = "3.2.0"
 
     const val kotlinxSerialization = "1.4.0"
+    const val kotlinxDateTime = "0.4.0"
 
     const val compose = "1.2.1"
     const val composeCompiler = "1.3.1"
@@ -19,6 +20,11 @@ object AndroidSdk {
     const val target = compile
 }
 
+object Plugins {
+    const val serialization = "plugin.serialization"
+    const val cocoapods = "native.cocoapods"
+}
+
 object Deps {
     object AndroidX {
         const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
@@ -29,14 +35,18 @@ object Deps {
         const val ui = "androidx.compose.ui:ui:${Versions.compose}"
         const val uiGraphics = "androidx.compose.ui:ui-graphics:${Versions.compose}"
         const val uiTooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
-        const val foundationLayout = "androidx.compose.foundation:foundation-layout:${Versions.compose}"
+        const val foundationLayout =
+            "androidx.compose.foundation:foundation-layout:${Versions.compose}"
         const val material = "androidx.compose.material:material:${Versions.compose}"
         const val navigation = "androidx.navigation:navigation-compose:${Versions.navCompose}"
     }
 
     object Kotlinx {
-        const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}"
-        const val serializationCore = "org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.kotlinxSerialization}"
+        const val coroutinesCore =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}"
+        const val serializationCore =
+            "org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.kotlinxSerialization}"
+        const val dateTime = "org.jetbrains.kotlinx:kotlinx-datetime:${Versions.kotlinxDateTime}"
     }
 
     object Ktor {

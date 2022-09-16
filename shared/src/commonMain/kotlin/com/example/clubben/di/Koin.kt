@@ -20,7 +20,7 @@ const val baseUrl = "https://aggregator-service-jonashiltl.cloud.okteto.net"
 
 fun commonModule(enableNetworkLogs: Boolean) = module {
     single { createJson() }
-    single { createHttpClient(get(), baseUrl, get(), enableNetworkLogs = enableNetworkLogs) }
+    single { createHttpClient(get(), baseUrl, get(), enableNetworkLogs) }
 
     single { CoroutineScope(Dispatchers.Default + SupervisorJob() ) }
 }
