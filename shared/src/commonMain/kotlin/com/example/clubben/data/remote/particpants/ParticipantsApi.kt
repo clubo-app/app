@@ -1,5 +1,6 @@
 package com.example.clubben.data.remote.particpants
 
+import com.example.clubben.data.remote.profiles.PagedProfile
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
@@ -25,7 +26,7 @@ class ParticipantsApi(
         client.put("$PARTICIPANTS_PATH/$pId/accept/$uId")
 
     suspend fun getPartyParticipants(pId: String) =
-        client.get("$PARTICIPANTS_PATH/$pId").body<PagedPartyParticipant>()
+        client.get("$PARTICIPANTS_PATH/$pId").body<PagedProfile>()
 
     suspend fun joinParty(pId: String) =
         client.put("$PARTICIPANTS_PATH/$pId").body<PartyParticipant>()

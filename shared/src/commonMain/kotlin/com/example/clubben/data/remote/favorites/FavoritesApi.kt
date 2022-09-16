@@ -1,5 +1,6 @@
 package com.example.clubben.data.remote.favorites
 
+import com.example.clubben.data.remote.profiles.PagedProfile
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
@@ -33,6 +34,6 @@ class FavoritesApi(
                     parameters.append("nextPage", nextPage)
                 }
             }
-        }.body<PagedFavorisingProfiles>()
+        }.body<PagedProfile>()
     }
 }
