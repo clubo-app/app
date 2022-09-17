@@ -9,12 +9,12 @@ data class Profile(
     val id: String,
     val username: String,
     val firstname: String,
-    val lastname: String?,
-    val avatar: String?,
+    val lastname: String? = "",
+    val avatar: String? = "",
     val friendCount: Int,
 
     @SerialName("friendship_status")
-    val FriendshipStatus: FriendShipStatus?,
+    val FriendshipStatus: FriendShipStatus? = null
 )
 
 @Serializable
@@ -22,7 +22,7 @@ data class PagedProfile(
     val profiles: List<Profile>,
 
     @SerialName("next_page")
-    val nextPage: String?,
+    val nextPage: String? = ""
 )
 
 @Serializable
@@ -37,10 +37,10 @@ data class FriendShipStatus(
     val outgoingRequest: Boolean,
 
     @SerialName("requested_at")
-    val requestedAt: LocalDateTime?,
+    val requestedAt: LocalDateTime? = null,
 
     @SerialName("accepted_at")
-    val acceptedAt: LocalDateTime?,
+    val acceptedAt: LocalDateTime? = null
 )
 
 @Serializable
@@ -48,8 +48,8 @@ data class UpdateProfileRequest(
     val id: String,
     val username: String,
     val firstname: String,
-    val lastname: String?,
-    val avatar: String?,
+    val lastname: String? = "",
+    val avatar: String? = ""
 )
 
 @Serializable

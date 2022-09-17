@@ -6,13 +6,19 @@ import io.ktor.client.plugins.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.plugins.logging.*
 import io.ktor.serialization.kotlinx.json.*
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 
-fun createJson() = Json { isLenient = true; ignoreUnknownKeys = true }
+@OptIn(ExperimentalSerializationApi::class)
+fun createJson() = Json { isLenient = true; ignoreUnknownKeys = true; explicitNulls = false }
 
-fun createHttpClient(httpClientEngine: HttpClientEngine, baseUrl: String, json: Json, enableNetworkLogs: Boolean) = HttpClient(httpClientEngine) {
+fun createHttpClient(
+    httpClientEngine: HttpClientEngine,
+    baseUrl: String,
+    enableNetworkLogs: Boolean
+) = HttpClient(httpClientEngine) {
     install(ContentNegotiation) {
-        json(json)
+        json(createJson())
     }
     install(DefaultRequest) {
         url(baseUrl)

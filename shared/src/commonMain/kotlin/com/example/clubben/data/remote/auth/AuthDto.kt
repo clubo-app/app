@@ -11,7 +11,7 @@ data class Tokens(
     val accessToken: String,
 
     @SerialName("refresh_token")
-    val refreshToken: String,
+    val refreshToken: String
 )
 
 @Serializable
@@ -20,19 +20,19 @@ data class Account(
 
     // TODO: get profile
     val profile: Profile,
-    val email: String,
+    val email: String
 )
 
 @Serializable
 data class LoginResponse(
     val tokens: Tokens,
-    val account: Account,
+    val account: Account
 )
 
 @Serializable
 data class LoginRequest(
     val email: String,
-    val password: String,
+    val password: String
 )
 
 @Serializable
@@ -41,6 +41,6 @@ data class RegisterRequest(
     val password: String,
     val username: String,
     val firstname: String,
-    val lastname: String?,
-    val avatar: String?, // base64 encoded image
+    val lastname: String? = "",
+    val avatar: String? = "" // base64 encoded image
 )

@@ -2,7 +2,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     kotlin(Plugins.cocoapods)
-    kotlin(Plugins.serialization) version "1.7.10"
+    kotlin(Plugins.serialization) version Versions.kotlin
 }
 
 kotlin {

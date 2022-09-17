@@ -8,13 +8,14 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Party(
     val id: String,
-    val creator: Profile?,
+    val creator: Profile? = null,
     val title: String,
-    val description: String?,
+    val description: String? = "",
     val lat: Float,
     val lon: Float,
 
     //TODO: stories
+    // needs to have a defualt value of emptyList()
 
     @SerialName("is_public")
     val isPublic: Boolean,
@@ -26,7 +27,7 @@ data class Party(
     val maxParticipants: Int,
 
     @SerialName("participation_status")
-    val participationStatus: ParticipationStatus?,
+    val participationStatus: ParticipationStatus? = null,
 
     @SerialName("street_address")
     val streetAddress: String,
@@ -50,7 +51,7 @@ data class Party(
 @Serializable
 data class CreatePartyRequest(
     val title: String,
-    val description: String?,
+    val description: String? = "",
     val lat: Float,
     val lon: Float,
 
@@ -85,7 +86,7 @@ data class PagedParties(
 @Serializable
 data class UpdatePartyRequest(
     val title: String,
-    val description: String?,
+    val description: String? = "",
     val lat: Float,
     val lon: Float,
 
@@ -105,7 +106,7 @@ data class UpdatePartyRequest(
     val country: String,
 
     @SerialName("entry_date")
-    val entryDate: LocalDateTime,
+    val entryDate: LocalDateTime
 )
 
 @Serializable
@@ -114,8 +115,8 @@ data class ParticipationStatus(
     val participating: Boolean,
 
     @SerialName("requested_at")
-    val requestedAt: LocalDateTime?,
+    val requestedAt: LocalDateTime? = null,
 
     @SerialName("joined_at")
-    val joinedAt: LocalDateTime?,
+    val joinedAt: LocalDateTime? = null
 )

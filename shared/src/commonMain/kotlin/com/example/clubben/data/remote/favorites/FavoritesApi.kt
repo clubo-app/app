@@ -26,7 +26,7 @@ class FavoritesApi(
             }
         }.body<PagedFavoriteParties>()
 
-    suspend fun getFavorisingProfilesByParty(pId: String, limit: Int, nextPage: String? = null) {
+    suspend fun getFavorisingProfilesByParty(pId: String, limit: Int, nextPage: String? = null) =
         client.get("$FAVORITE_PATH/$pId") {
             url {
                 parameters.append("limit", limit.toString())
@@ -35,5 +35,7 @@ class FavoritesApi(
                 }
             }
         }.body<PagedProfile>()
-    }
+
+    suspend fun getPartyFavoriteCount(pId: String) =
+        client.get("$FAVORITE_PATH/count/$pId").body<FavoriteCount>()
 }

@@ -8,9 +8,9 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class PartyInvite(
-    val profile: Profile?,
+    val profile: Profile? = null,
     val inviter: Profile,
-    val party: Party?,
+    val party: Party? = null,
 
     @SerialName("valid_until")
     val validUntil: LocalDateTime
@@ -21,7 +21,7 @@ data class PagedPartyInvites(
     val invites: List<PartyInvite>,
 
     @SerialName("next_page")
-    val nextPage: String?
+    val nextPage: String? = ""
 )
 
 @Serializable
@@ -34,7 +34,7 @@ data class PartyParticipant(
     val joinedAt: LocalDateTime,
 
     @SerialName("requested_at")
-    val requestedAt: LocalDateTime,
+    val requestedAt: LocalDateTime
 )
 
 @Serializable
@@ -42,5 +42,5 @@ data class PagedPartyParticipant(
     val participants: List<PartyParticipant>,
 
     @SerialName("next_page")
-    val nextPage: String?
+    val nextPage: String? = ""
 )

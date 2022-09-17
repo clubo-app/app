@@ -13,7 +13,7 @@ data class FavoriteParty(
     val party: Party,
 
     @SerialName("favorited_at")
-    val favoritedAt: LocalDateTime,
+    val favoritedAt: LocalDateTime
 )
 
 @Serializable
@@ -22,5 +22,11 @@ data class PagedFavoriteParties(
     val favoriteParties: List<FavoriteParty>,
 
     @SerialName("next_page")
-    val nextPage: String?
+    val nextPage: String? = ""
+)
+
+@Serializable
+data class FavoriteCount(
+    @SerialName("favorite_count")
+    val count: Int
 )

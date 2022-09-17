@@ -25,5 +25,14 @@ class FriendsApi(
         client.put("$PARTICIPANTS_PATH/$friendId")
 
     suspend fun getFriends(uId: String, accepted: Boolean, limit: Int, nextPage: String?) =
-        client.get("$PARTICIPANTS_PATH/$uId").body<PagedProfile>()
+        client.get("$PARTICIPANTS_PATH/$uId") {
+            url {
+                parameters.append("accepted", accepted.toString())
+                parameters.append("limit", limit.toString())
+                if (nextPage != null) {
+                    parameters.append("nextPage", nextPage.toString())
+                }
+            }
+        }.body<PagedProfile>()
+
 }
