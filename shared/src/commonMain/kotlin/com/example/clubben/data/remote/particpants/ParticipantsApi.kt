@@ -32,6 +32,9 @@ class ParticipantsApi(
     suspend fun getUserPartyParticipation(uId: String) =
         client.get("$PARTICIPANTS_PATH/user/$uId").body<PagedParties>()
 
+    suspend fun getFriendsPartyParticipation(uId: String) =
+        client.get("$PARTICIPANTS_PATH/friends/$uId").body<PagedParties>()
+
     suspend fun joinParty(pId: String) =
         client.put("$PARTICIPANTS_PATH/$pId").body<PartyParticipant>()
 
