@@ -67,6 +67,9 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				FB69FA3D28D66AAC006040C2 /* System */,
+				FB69FA3C28D66A7A006040C2 /* Resources */,
+				FB69FA3B28D66A58006040C2 /* UI */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -90,8 +93,28 @@
 				BE17C1399475C21097D6EA4A /* Pods-iosApp.debug.xcconfig */,
 				2FB7E0C1B375381DF72B9EE5 /* Pods-iosApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FB69FA3B28D66A58006040C2 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		FB69FA3C28D66A7A006040C2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FB69FA3D28D66AAC006040C2 /* System */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = System;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
