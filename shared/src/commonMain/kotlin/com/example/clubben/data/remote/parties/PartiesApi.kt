@@ -29,7 +29,7 @@ class PartiesApi(
                     parameters.append("offset", offset.toString())
                 }
             }
-        }.body<PagedParties>()
+        }.body<List<Party>>()
 
     suspend fun updateParty(pId: String, req: UpdatePartyRequest) =
         client.patch("$PARTIES_PATH/$pId") {
@@ -54,5 +54,5 @@ class PartiesApi(
                     parameters.append("offset", offset.toString())
                 }
             }
-        }.body<PagedParties>()
+        }.body<List<Party>>()
 }

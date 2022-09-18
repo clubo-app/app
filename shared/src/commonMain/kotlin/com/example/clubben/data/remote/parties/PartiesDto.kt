@@ -80,7 +80,10 @@ data class CreatePartyRequest(
 
 @Serializable
 data class PagedParties(
-    val parties: List<Party>
+    val parties: List<Party>,
+
+    @SerialName("next_page")
+    val nextPage: String? = ""
 )
 
 @Serializable
