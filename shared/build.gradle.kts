@@ -1,9 +1,13 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    kotlin(Plugins.cocoapods)
-    kotlin(Plugins.serialization) version Versions.kotlin
+    kotlin("native.cocoapods")
+    kotlin("plugin.serialization") version Versions.kotlin
+    id("com.squareup.sqldelight") version Versions.sqlDelight
 }
+
+// CocoaPods requires the podspec to have a version.
+version = 1.0
 
 kotlin {
     android()
@@ -14,7 +18,6 @@ kotlin {
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
-        version = "1.0"
         ios.deploymentTarget = "14.1"
         podfile = project.file("../iosApp/Podfile")
         framework {
@@ -47,6 +50,10 @@ kotlin {
                 with(Deps.Log) {
                     api(kermit)
                 }
+
+                with(Deps.SqlDelight) {
+                    implementation(coroutineExtensions)
+                }
             }
         }
         val commonTest by getting {
@@ -56,7 +63,17 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation(Deps.Ktor.clientAndroid)
+                with(Deps.Ktor) {
+                    implementation(clientAndroid)
+                }
+
+                //with(Deps.AndroidX) {
+                //    api(viewmodelLifeCycle)
+                //}
+
+                with(Deps.SqlDelight) {
+                    implementation(androidDriver)
+                }
             }
         }
         val androidTest by getting
@@ -70,7 +87,13 @@ kotlin {
             iosSimulatorArm64Main.dependsOn(this)
 
             dependencies {
-                implementation(Deps.Ktor.clientDarwin)
+                with(Deps.Ktor) {
+                    implementation(clientDarwin)
+                }
+
+                with(Deps.SqlDelight) {
+                    implementation(nativeDriver)
+                }
             }
         }
         val iosX64Test by getting
@@ -91,5 +114,11 @@ android {
     defaultConfig {
         minSdk = 21
         targetSdk = 32
+    }
+}
+
+sqldelight {
+    database("ClubbenDatabase") {
+        packageName = "com.example.clubben.db"
     }
 }

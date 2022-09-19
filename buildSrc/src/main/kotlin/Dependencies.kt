@@ -7,10 +7,13 @@ object Versions {
     const val kotlinxSerialization = "1.3.3"
     const val kotlinxDateTime = "0.4.0"
 
+    const val sqlDelight = "1.5.3"
+
     const val compose = "1.2.1"
     const val composeCompiler = "1.3.1"
     const val navCompose = "2.5.2"
     const val activityCompose = "1.5.1"
+    const val viewmodelLifeCycle = "2.5.1"
 
     const val kermit = "1.1.3"
 }
@@ -21,14 +24,11 @@ object AndroidSdk {
     const val target = compile
 }
 
-object Plugins {
-    const val serialization = "plugin.serialization"
-    const val cocoapods = "native.cocoapods"
-}
-
 object Deps {
     object AndroidX {
         const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
+        const val viewmodelLifeCycle =
+            "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.viewmodelLifeCycle}"
     }
 
     object Compose {
@@ -70,5 +70,12 @@ object Deps {
 
     object Log {
         const val kermit = "co.touchlab:kermit:${Versions.kermit}"
+    }
+
+    object SqlDelight {
+        const val coroutineExtensions =
+            "com.squareup.sqldelight:coroutines-extensions:${Versions.sqlDelight}"
+        const val androidDriver = "com.squareup.sqldelight:android-driver:${Versions.sqlDelight}"
+        const val nativeDriver = "com.squareup.sqldelight:native-driver:${Versions.sqlDelight}"
     }
 }
