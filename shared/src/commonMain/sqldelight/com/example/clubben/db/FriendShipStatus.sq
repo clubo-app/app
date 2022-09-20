@@ -1,0 +1,17 @@
+CREATE TABLE FriendShipStatus (
+    user_id TEXT PRIMARY KEY,
+    is_friend INTEGER AS Boolean,
+    incoming_request INTEGER AS Boolean,
+    outgoing_request INTEGER AS Boolean,
+    requested_at TEXT,
+    accepted_at TEXT
+);
+
+getFriendShipStatus:
+SELECT *
+FROM FriendShipStatus
+WHERE user_id = ?;
+
+insertFriendShipStatus:
+INSERT OR REPLACE INTO FriendShipStatus(user_id, is_friend, incoming_request, outgoing_request, requested_at, accepted_at)
+VALUES (?, ?,?,?,?,?);

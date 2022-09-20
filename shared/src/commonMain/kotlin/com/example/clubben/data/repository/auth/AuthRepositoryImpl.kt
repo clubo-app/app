@@ -1,4 +1,6 @@
 package com.example.clubben.data.repository.auth
 
-class AuthRepositoryImpl {
+import org.koin.core.component.KoinComponent
+
+class AuthRepositoryImpl : KoinComponent, AuthRepository {
 }

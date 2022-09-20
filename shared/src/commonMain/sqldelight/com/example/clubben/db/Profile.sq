@@ -1,0 +1,17 @@
+CREATE TABLE Profile (
+    id TEXT PRIMARY KEY,
+    username TEXT NOT NULL,
+    firstname TEXT NOT NULL,
+    lastname TEXT,
+    avatar TEXT,
+    friend_count INTEGER AS Int DEFAULT 0
+);
+
+getProfileById:
+SELECT *
+FROM Profile
+WHERE id = ?;
+
+insertProfile:
+INSERT OR REPLACE INTO Profile(id, username, firstname, lastname, avatar, friend_count)
+VALUES (?,?,?,?,?,?);
