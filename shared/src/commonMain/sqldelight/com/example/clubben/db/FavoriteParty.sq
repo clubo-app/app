@@ -1,0 +1,17 @@
+CREATE TABLE LocalFavoriteParty (
+    party_id TEXT PRIMARY KEY,
+    favorited_at TEXT NOT NULL
+);
+
+insert:
+INSERT OR REPLACE INTO LocalFavoriteParty
+VALUES ?;
+
+delete:
+DELETE FROM LocalFavoriteParty
+WHERE party_id = ?;
+
+getFavoriteParties:
+SELECT *
+FROM LocalFavoriteParty f, LocalParty p
+WHERE f.party_id = p.party_id;

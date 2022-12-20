@@ -1,17 +1,22 @@
-CREATE TABLE Profile (
+CREATE TABLE LocalProfile (
     id TEXT PRIMARY KEY,
     username TEXT NOT NULL,
     firstname TEXT NOT NULL,
     lastname TEXT,
     avatar TEXT,
-    friend_count INTEGER AS Int DEFAULT 0
+    friend_count INTEGER AS Int NOT NULL DEFAULT 0
 );
 
-getProfileById:
+getById:
 SELECT *
-FROM Profile
+FROM LocalProfile
 WHERE id = ?;
 
-insertProfile:
-INSERT OR REPLACE INTO Profile(id, username, firstname, lastname, avatar, friend_count)
-VALUES (?,?,?,?,?,?);
+insert:
+INSERT OR REPLACE INTO LocalProfile(id, username, firstname, lastname, avatar, friend_count)
+VALUES ?;
+
+getFriends:
+SELECT *
+FROM LocalProfile, LocalFriendShipStatus
+WHERE id = ? AND friend_id = id AND is_friend = ?;

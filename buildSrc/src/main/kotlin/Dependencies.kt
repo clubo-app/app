@@ -1,21 +1,26 @@
 object Versions {
-    const val kotlin = "1.7.10"
+    const val kotlin = "1.7.20"
     const val kotlinCoroutines = "1.6.4"
-    const val ktor = "2.1.1"
-    const val koin = "3.2.0"
+    const val ktor = "2.1.2"
+    const val koin = "3.2.2"
 
     const val kotlinxSerialization = "1.3.3"
     const val kotlinxDateTime = "0.4.0"
 
     const val sqlDelight = "1.5.3"
 
+    const val nativeCoroutines = "0.13.1"
+
+    const val kSwift = "0.6.1"
+
     const val compose = "1.2.1"
-    const val composeCompiler = "1.3.1"
+    const val composeCompiler = "1.3.2"
     const val navCompose = "2.5.2"
     const val activityCompose = "1.5.1"
-    const val viewmodelLifeCycle = "2.5.1"
 
     const val kermit = "1.1.3"
+
+    const val firebase = "1.6.2"
 }
 
 object AndroidSdk {
@@ -27,8 +32,6 @@ object AndroidSdk {
 object Deps {
     object AndroidX {
         const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
-        const val viewmodelLifeCycle =
-            "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.viewmodelLifeCycle}"
     }
 
     object Compose {
@@ -53,6 +56,7 @@ object Deps {
     object Ktor {
         const val clientCore = "io.ktor:ktor-client-core:${Versions.ktor}"
         const val clientJson = "io.ktor:ktor-client-json:${Versions.ktor}"
+        const val clientAuth = "io.ktor:ktor-client-auth:${Versions.ktor}"
         const val clientLogging = "io.ktor:ktor-client-logging:${Versions.ktor}"
         const val clientSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
         const val contentNegotiation = "io.ktor:ktor-client-content-negotiation:${Versions.ktor}"
@@ -77,5 +81,9 @@ object Deps {
             "com.squareup.sqldelight:coroutines-extensions:${Versions.sqlDelight}"
         const val androidDriver = "com.squareup.sqldelight:android-driver:${Versions.sqlDelight}"
         const val nativeDriver = "com.squareup.sqldelight:native-driver:${Versions.sqlDelight}"
+    }
+
+    object Firebase {
+        const val auth = "dev.gitlive:firebase-auth:${Versions.firebase}"
     }
 }

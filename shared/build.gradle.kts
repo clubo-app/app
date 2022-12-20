@@ -4,6 +4,16 @@ plugins {
     kotlin("native.cocoapods")
     kotlin("plugin.serialization") version Versions.kotlin
     id("com.squareup.sqldelight") version Versions.sqlDelight
+    id("com.rickclephas.kmp.nativecoroutines") version Versions.nativeCoroutines
+
+    id("dev.icerock.moko.kswift") version Versions.kSwift
+}
+
+kswift {
+    install(dev.icerock.moko.kswift.plugin.feature.SealedToSwiftEnumFeature) {
+        filter =
+            includeFilter("ClassContext/clubben:shared/com/example/clubben/utils/DataState")
+    }
 }
 
 // CocoaPods requires the podspec to have a version.
@@ -22,6 +32,8 @@ kotlin {
         podfile = project.file("../iosApp/Podfile")
         framework {
             baseName = "shared"
+            // required by firebase-auth
+            isStatic = true
         }
     }
 
@@ -35,6 +47,7 @@ kotlin {
                     implementation(clientSerialization)
                     implementation(contentNegotiation)
                     implementation(json)
+                    implementation(clientAuth)
                 }
 
                 with(Deps.Kotlinx) {
@@ -53,6 +66,10 @@ kotlin {
 
                 with(Deps.SqlDelight) {
                     implementation(coroutineExtensions)
+                }
+
+                with(Deps.Firebase) {
+                    implementation(auth)
                 }
             }
         }
@@ -110,10 +127,15 @@ kotlin {
 
 android {
     namespace = "com.example.clubben"
-    compileSdk = 32
+    compileSdk = AndroidSdk.compile
     defaultConfig {
-        minSdk = 21
-        targetSdk = 32
+        minSdk = AndroidSdk.min
+        targetSdk = AndroidSdk.target
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
 

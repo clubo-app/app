@@ -1,17 +1,27 @@
-CREATE TABLE FriendShipStatus (
-    user_id TEXT PRIMARY KEY,
-    is_friend INTEGER AS Boolean,
-    incoming_request INTEGER AS Boolean,
-    outgoing_request INTEGER AS Boolean,
+CREATE TABLE LocalFriendShipStatus (
+    friend_id TEXT PRIMARY KEY,
+    is_friend INTEGER AS Boolean NOT NULL,
+    incoming_request INTEGER AS Boolean NOT NULL,
+    outgoing_request INTEGER AS Boolean NOT NULL,
     requested_at TEXT,
     accepted_at TEXT
 );
 
-getFriendShipStatus:
+getByFriendId:
 SELECT *
-FROM FriendShipStatus
-WHERE user_id = ?;
+FROM LocalFriendShipStatus
+WHERE friend_id = ?;
 
-insertFriendShipStatus:
-INSERT OR REPLACE INTO FriendShipStatus(user_id, is_friend, incoming_request, outgoing_request, requested_at, accepted_at)
-VALUES (?, ?,?,?,?,?);
+insert:
+INSERT OR REPLACE INTO LocalFriendShipStatus(friend_id, is_friend, incoming_request, outgoing_request, requested_at, accepted_at)
+VALUES ?;
+
+acceptFriend:
+INSERT OR REPLACE INTO LocalFriendShipStatus(friend_id, is_friend, incoming_request, outgoing_request, requested_at, accepted_at)
+SELECT :friendId, 1, 0, 0, requested_at, ?
+FROM LocalFriendShipStatus
+WHERE :friendId = friend_id;
+
+delete:
+DELETE FROM LocalFriendShipStatus
+WHERE friend_id = ?;

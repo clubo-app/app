@@ -1,0 +1,33 @@
+CREATE TABLE LocalParty (
+    party_id TEXT PRIMARY KEY,
+    creator_id TEXT NOT NULL,
+    title TEXT NOT NULL,
+    description TEXT,
+    is_public INTEGER AS Boolean NOT NULL,
+    music_genre TEXT NOT NULL,
+    max_participants INTEGER AS Int NOT NULL DEFAULT 0,
+    lat  REAL AS Float NOT NULL,
+    lon REAL AS Float NOT NULL,
+    street_address TEXT,
+    postal_code TEXT,
+    state TEXT,
+    country TEXT,
+    entry_date TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    favorite_count INTEGER AS Int NOT NULL DEFAULT 0,
+    participation_count INTEGER AS Int NOT NULL DEFAULT 0
+);
+
+insert:
+INSERT OR REPLACE INTO LocalParty
+VALUES ?;
+
+getById:
+SELECT *
+FROM LocalParty
+WHERE party_id = ?;
+
+getByUserId:
+SELECT *
+FROM LocalParty
+WHERE creator_id = ?;

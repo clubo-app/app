@@ -1,0 +1,19 @@
+CREATE TABLE LocalAccount(
+    user_id TEXT PRIMARY KEY NOT NULL,
+    email TEXT NOT NULL,
+    email_verified INTEGER AS Boolean DEFAULT 0,
+    provider_id TEXT
+);
+
+insert:
+INSERT OR REPLACE INTO LocalAccount(user_id,email, email_verified, provider_id)
+VALUES (?,?, ?, ?);
+
+updateEmail:
+UPDATE LocalAccount
+SET email = ?
+WHERE user_id = ?;
+
+selectAll:
+SELECT *
+FROM LocalAccount;

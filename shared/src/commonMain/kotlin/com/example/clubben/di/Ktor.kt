@@ -1,29 +1,50 @@
 package com.example.clubben.di
 
+import com.example.clubben.utils.ApiError
+import com.example.clubben.utils.TokenManager
 import io.ktor.client.*
-import io.ktor.client.engine.*
+import io.ktor.client.call.*
 import io.ktor.client.plugins.*
+import io.ktor.client.plugins.auth.*
+import io.ktor.client.plugins.auth.providers.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.plugins.logging.*
 import io.ktor.serialization.kotlinx.json.*
-import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 
-@OptIn(ExperimentalSerializationApi::class)
-fun createJson() = Json { isLenient = true; ignoreUnknownKeys = true; explicitNulls = false }
-
 fun createHttpClient(
-    httpClientEngine: HttpClientEngine,
     baseUrl: String,
-    enableNetworkLogs: Boolean
-) = HttpClient(httpClientEngine) {
+    enableNetworkLogs: Boolean,
+    tokenManager: TokenManager,
+    config: Json
+) = HttpClient {
     install(ContentNegotiation) {
-        json(createJson())
+        json(config)
+    }
+    install(Auth) {
+        bearer {
+            loadTokens {
+                tokenManager.loadTokens()
+            }
+        }
     }
     install(DefaultRequest) {
         url(baseUrl)
     }
 
+    expectSuccess = true
+
+    HttpResponseValidator {
+        handleResponseExceptionWithRequest { exception, request ->
+            val clientException =
+                exception as? ClientRequestException ?: return@handleResponseExceptionWithRequest
+            val exceptionResponse = clientException.response
+            if (exceptionResponse.status.value > 200) {
+                val error: ApiError = exceptionResponse.body()
+                throw error
+            }
+        }
+    }
     if (enableNetworkLogs) {
         install(Logging) {
             logger = Logger.DEFAULT
