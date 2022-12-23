@@ -3,10 +3,10 @@ package com.example.clubben.repository.parties
 import co.touchlab.kermit.Logger
 import com.example.clubben.Constants
 import com.example.clubben.di.ClubbenDatabaseWrapper
+import com.example.clubben.remote.parties.*
 import com.example.clubben.utils.ApiError
 import com.example.clubben.utils.DataState
 import com.example.clubben.utils.catchApiError
-import com.example.clubben.remote.parties.*
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 

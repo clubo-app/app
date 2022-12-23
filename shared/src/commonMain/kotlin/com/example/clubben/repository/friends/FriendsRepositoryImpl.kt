@@ -3,14 +3,14 @@ package com.example.clubben.repository.friends
 import co.touchlab.kermit.Logger
 import com.example.clubben.Constants
 import com.example.clubben.di.ClubbenDatabaseWrapper
-import com.example.clubben.utils.ApiError
-import com.example.clubben.utils.DataState
-import com.example.clubben.utils.catchApiError
-import com.example.clubben.utils.currentTimeWithOffset
 import com.example.clubben.remote.friends.FriendShipStatus
 import com.example.clubben.remote.friends.FriendsApi
 import com.example.clubben.remote.friends.toDBFriendShipStatus
 import com.example.clubben.remote.profiles.PagedProfile
+import com.example.clubben.utils.ApiError
+import com.example.clubben.utils.DataState
+import com.example.clubben.utils.catchApiError
+import com.example.clubben.utils.currentTimeWithOffset
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 

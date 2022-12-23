@@ -8,6 +8,16 @@ import org.koin.core.component.inject
 sealed class DataState<out Success, out Failure> {
     data class Success<out Success>(val value: Success) : DataState<Success, Nothing>()
     data class Failure<out Failure>(val error: Failure) : DataState<Nothing, Failure>()
+
+    fun <R> fold(
+        onSuccess: (value: Success) -> R,
+        onFailure: (error: Failure) -> R
+    ): R {
+        return when (this) {
+            is DataState.Success -> onSuccess(value)
+            is DataState.Failure -> onFailure(error)
+        }
+    }
 }
 
 inline fun <T> catchApiError(block: () -> T): DataState<T, ApiError> {

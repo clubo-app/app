@@ -3,15 +3,15 @@ package com.example.clubben.repository.favorites
 import co.touchlab.kermit.Logger
 import com.example.clubben.Constants
 import com.example.clubben.di.ClubbenDatabaseWrapper
-import com.example.clubben.utils.ApiError
-import com.example.clubben.utils.DataState
-import com.example.clubben.utils.TokenManager
-import com.example.clubben.utils.catchApiError
 import com.example.clubben.remote.favorites.FavoriteParty
 import com.example.clubben.remote.favorites.FavoritesApi
 import com.example.clubben.remote.favorites.toDBFavoriteParty
 import com.example.clubben.remote.parties.PagedParties
 import com.example.clubben.remote.profiles.PagedProfile
+import com.example.clubben.utils.ApiError
+import com.example.clubben.utils.DataState
+import com.example.clubben.utils.TokenManager
+import com.example.clubben.utils.catchApiError
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 

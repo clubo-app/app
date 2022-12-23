@@ -1,11 +1,12 @@
 package com.example.clubben.remote.profiles
 
+import com.example.clubben.db.LocalProfile
 import com.example.clubben.remote.friends.FriendShipStatus
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Profile(
+data class RemoteProfile(
     val id: String,
     val username: String,
     val firstname: String,
@@ -19,7 +20,7 @@ data class Profile(
     var friendshipStatus: FriendShipStatus? = null
 )
 
-fun Profile.toDBProfile() = com.example.clubben.db.LocalProfile(
+fun RemoteProfile.toDBProfile() = LocalProfile(
     id = id,
     username = username,
     firstname = firstname,
@@ -28,7 +29,7 @@ fun Profile.toDBProfile() = com.example.clubben.db.LocalProfile(
     friend_count = friendCount
 )
 
-fun com.example.clubben.db.LocalProfile.toProfile() = Profile(
+fun LocalProfile.toRemoteProfile() = RemoteProfile(
     id = id,
     username = username,
     firstname = firstname,
@@ -39,7 +40,7 @@ fun com.example.clubben.db.LocalProfile.toProfile() = Profile(
 
 @Serializable
 data class PagedProfile(
-    val profiles: List<Profile>,
+    val profiles: List<RemoteProfile>,
 
     @SerialName("next_page")
     val nextPage: String? = ""

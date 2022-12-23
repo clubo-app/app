@@ -1,9 +1,9 @@
 package com.example.clubben.repository.friends
 
-import com.example.clubben.utils.ApiError
-import com.example.clubben.utils.DataState
 import com.example.clubben.remote.friends.FriendShipStatus
 import com.example.clubben.remote.profiles.PagedProfile
+import com.example.clubben.utils.ApiError
+import com.example.clubben.utils.DataState
 
 interface FriendsRepository {
     suspend fun createFriendRequest(friendId: String): DataState<FriendShipStatus, ApiError>

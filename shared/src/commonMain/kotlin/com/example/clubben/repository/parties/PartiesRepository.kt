@@ -1,10 +1,10 @@
 package com.example.clubben.repository.parties
 
-import com.example.clubben.utils.ApiError
-import com.example.clubben.utils.DataState
 import com.example.clubben.remote.parties.CreatePartyRequest
 import com.example.clubben.remote.parties.Party
 import com.example.clubben.remote.parties.UpdatePartyRequest
+import com.example.clubben.utils.ApiError
+import com.example.clubben.utils.DataState
 
 interface PartiesRepository {
     suspend fun createParty(req: CreatePartyRequest): DataState<Party, ApiError>

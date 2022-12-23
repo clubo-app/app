@@ -1,6 +1,11 @@
 package com.example.clubben.di
 
-import com.example.clubben.domain.auth.AuthDomain
+import com.example.clubben.domain.auth.GetCurrentAccountUseCase
+import com.example.clubben.domain.auth.LoginUseCase
+import com.example.clubben.domain.auth.RegisterUserCase
+import com.example.clubben.domain.auth.SignOutUseCase
+import com.example.clubben.domain.profile.GetProfileUseCase
+import com.example.clubben.domain.profile.UsernameExistsUseCase
 import com.example.clubben.domain.toast.ToastQueue
 import com.example.clubben.remote.auth.AuthApi
 import com.example.clubben.remote.favorites.FavoritesApi
@@ -21,6 +26,9 @@ import com.example.clubben.repository.parties.PartiesRepositoryImpl
 import com.example.clubben.repository.platformModule
 import com.example.clubben.repository.profiles.ProfilesRepository
 import com.example.clubben.repository.profiles.ProfilesRepositoryImpl
+import com.example.clubben.ui.app.AppViewModel
+import com.example.clubben.ui.login.LoginViewModel
+import com.example.clubben.ui.signup.SignupViewModel
 import com.example.clubben.utils.TokenManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -42,13 +50,20 @@ fun initKoin(enableNetworkLogs: Boolean = false, appDeclaration: KoinAppDeclarat
             getBaseModule(),
             getRemoteModule(enableNetworkLogs = enableNetworkLogs),
             getRepositoryModule(),
-            getDomainModule(),
+            getUseCaseModule(),
+            getViewModelModule()
         )
     }
 
 // called by iOS
 fun KoinApplication.Companion.start(): KoinApplication = initKoin()
 val Koin.toastQueue: ToastQueue
+    get() = get()
+val Koin.loginViewModel: LoginViewModel
+    get() = get()
+val Koin.appViewModel: AppViewModel
+    get() = get()
+val Koin.signUpViewModel: SignupViewModel
     get() = get()
 
 const val baseUrl = "https://aggregator-service-jonashiltl.cloud.okteto.net"
@@ -82,7 +97,19 @@ fun getRepositoryModule() = module {
     factory<ProfilesRepository> { ProfilesRepositoryImpl() }
 }
 
-fun getDomainModule() = module {
+fun getUseCaseModule() = module {
     single { ToastQueue() }
-    single { AuthDomain() }
+    factory { GetCurrentAccountUseCase(get(), get()) }
+    factory { LoginUseCase(get(), get()) }
+    factory { RegisterUserCase(get(), get()) }
+    factory { SignOutUseCase(get()) }
+
+    factory { GetProfileUseCase(get()) }
+    factory { UsernameExistsUseCase(get()) }
+}
+
+fun getViewModelModule() = module {
+    single { AppViewModel(get()) }
+    single { LoginViewModel(get(), get()) }
+    single { SignupViewModel(get(), get()) }
 }

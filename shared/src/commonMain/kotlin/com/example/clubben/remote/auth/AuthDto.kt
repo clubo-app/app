@@ -1,13 +1,13 @@
 package com.example.clubben.remote.auth
 
-import com.example.clubben.remote.profiles.Profile
+import com.example.clubben.remote.profiles.RemoteProfile
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class RemoteAccount(
     val id: String,
-    val profile: Profile? = null,
+    val profile: RemoteProfile? = null,
     val email: String?,
 
     @SerialName("email_verified")

@@ -1,19 +1,18 @@
 object Versions {
-    const val kotlin = "1.7.20"
+    const val kotlin = "1.8.0-RC2"
     const val kotlinCoroutines = "1.6.4"
     const val ktor = "2.1.2"
-    const val koin = "3.2.2"
+    const val koin = "3.3.0"
 
     const val kotlinxSerialization = "1.3.3"
     const val kotlinxDateTime = "0.4.0"
 
     const val sqlDelight = "1.5.3"
 
-    const val nativeCoroutines = "0.13.1"
+    const val nativeCoroutines = "1.0.0-ALPHA-3"
+    const val kmmViewmodel = "1.0.0-ALPHA-2-kotlin-1.8.0-RC2"
 
-    const val kSwift = "0.6.1"
-
-    const val compose = "1.2.1"
+    const val compose = "1.4.0-alpha03"
     const val composeCompiler = "1.3.2"
     const val navCompose = "2.5.2"
     const val activityCompose = "1.5.1"
@@ -85,5 +84,9 @@ object Deps {
 
     object Firebase {
         const val auth = "dev.gitlive:firebase-auth:${Versions.firebase}"
+    }
+
+    object KMMViewmodel {
+        const val core = "com.rickclephas.kmm:kmm-viewmodel-core:${Versions.kmmViewmodel}"
     }
 }

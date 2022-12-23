@@ -1,6 +1,6 @@
 package com.example.clubben.domain.auth
 
-import com.example.clubben.remote.profiles.Profile
+import com.example.clubben.domain.profile.Profile
 
 data class Account(
     val id: String,

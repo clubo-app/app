@@ -4,16 +4,9 @@ plugins {
     kotlin("native.cocoapods")
     kotlin("plugin.serialization") version Versions.kotlin
     id("com.squareup.sqldelight") version Versions.sqlDelight
+
+    id("com.google.devtools.ksp") version "1.8.0-RC2-1.0.8"
     id("com.rickclephas.kmp.nativecoroutines") version Versions.nativeCoroutines
-
-    id("dev.icerock.moko.kswift") version Versions.kSwift
-}
-
-kswift {
-    install(dev.icerock.moko.kswift.plugin.feature.SealedToSwiftEnumFeature) {
-        filter =
-            includeFilter("ClassContext/clubben:shared/com/example/clubben/utils/DataState")
-    }
 }
 
 // CocoaPods requires the podspec to have a version.
@@ -35,6 +28,10 @@ kotlin {
             // required by firebase-auth
             isStatic = true
         }
+    }
+
+    sourceSets.all {
+        languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
     }
 
     sourceSets {
@@ -71,6 +68,10 @@ kotlin {
                 with(Deps.Firebase) {
                     implementation(auth)
                 }
+
+                with(Deps.KMMViewmodel) {
+                    implementation(core)
+                }
             }
         }
         val commonTest by getting {
@@ -93,7 +94,6 @@ kotlin {
                 }
             }
         }
-        val androidTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -124,6 +124,7 @@ kotlin {
         }
     }
 }
+
 
 android {
     namespace = "com.example.clubben"

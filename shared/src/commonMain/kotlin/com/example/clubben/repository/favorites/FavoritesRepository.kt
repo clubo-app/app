@@ -1,10 +1,10 @@
 package com.example.clubben.repository.favorites
 
-import com.example.clubben.utils.ApiError
-import com.example.clubben.utils.DataState
 import com.example.clubben.remote.favorites.FavoriteParty
 import com.example.clubben.remote.parties.PagedParties
 import com.example.clubben.remote.profiles.PagedProfile
+import com.example.clubben.utils.ApiError
+import com.example.clubben.utils.DataState
 
 interface FavoritesRepository {
     suspend fun favorParty(partyId: String): DataState<FavoriteParty, ApiError>
