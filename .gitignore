@@ -10,3 +10,6 @@ local.properties
 xcuserdata
 
 GoogleService-Info.plist
+
+## Cocoapods
+**/Pods
