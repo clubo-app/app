@@ -7,51 +7,29 @@
 //
 
 import Foundation
-import ComposableArchitecture
 
-typealias MainNavigationStore = StoreOf<MainNavigationCore>
-typealias MainNavigationViewStore = ViewStoreOf<MainNavigationCore>
-
-struct MainNavigationCore: ReducerProtocol {
-    struct State: Equatable {
-        enum Tab: Equatable {
-            case home
-            case map
-            case profile
-        }
-        
-        var home = HomeCore.State()
-        var map = MapCore.State()
-        var profile = ProfileCore.State()
-        var selectedTab = Tab.map
-    }
-
-    enum Action: Equatable {
-        case selectTab(State.Tab)
-        case home(HomeCore.Action)
-        case map(MapCore.Action)
-        case profile(ProfileCore.Action)
+class MainNavigationViewModel: ObservableObject {
+    @Published var destination: Destination = .home
+    
+    enum Destination{
+        case home
+        case map
+        case profile
     }
     
-    var body: some ReducerProtocol<State, Action> {
-        Reduce { state, action in
-            switch action {
-            case let .selectTab(tab):
-                state.selectedTab = tab
-                return .none
-            default:
-                return .none
-            }
-        }
-        
-        Scope(state: \State.home, action: /Action.home) {
-            HomeCore()
-        }
-        Scope(state: \State.map, action: /Action.map) {
-            MapCore()
-        }
-        Scope(state: \State.profile, action: /Action.profile) {
-            ProfileCore()
-        }
-   }
+    func selectTab(tab: Destination) {
+        destination = tab
+    }
+    
+    func goToHome() {
+        destination = .home
+    }
+    
+    func goToMap() {
+        destination = .map
+    }
+    
+    func goToProfile() {
+        destination = .profile
+    }
 }

@@ -7,96 +7,92 @@
 //
 
 import SwiftUI
-import ComposableArchitecture
 import SwiftUINavigation
+import KMMViewModelSwiftUI
+import shared
 
 struct OnboardingView: View {
-    let store: OnboardingStore
+    @ObservedViewModel var onboardingViewModel: OnboardingViewModel
     
     var body: some View {
-        WithViewStore(self.store) { viewStore in
-            NavigationStack {
-                VStack(alignment: .leading) {
-                    Text("Start by choosing your role.")
-                        .caption()
-                    
-                    Spacer()
-                    
-                    VStack(spacing: Padding.l) {
-                        ChooseButton(
-                            store: self.store,
-                            image: "party.popper",
-                            title: "I'm a Partyer",
-                            subtitle: "Find the hottest parties wherever you are or create your own Parties.",
-                            disabled: false,
-                            value: .signup
-                        )
-                        ChooseButton(
-                            store: self.store,
-                            image: "wineglass",
-                            title: "I'm an Organiser",
-                            subtitle: "Coming soon...",
-                            disabled: true,
-                            value: .companySignup
-                        )
-                    }
-                    
-                    Spacer()
-                    
-                    HStack(alignment:.center) {
-                        Text("Already have an Account?")
-                        Button {
-                            viewStore.send(.updateRoute(.login))
-                        } label: {
-                            Text("Log in")
-                        }
-                    }
-                    .frame(maxWidth: .infinity)
-                    
+        NavigationStack {
+            VStack(alignment: .leading) {
+                Text("Start by choosing your role.")
+                    .caption()
+                
+                Spacer()
+                
+                VStack(spacing: Padding.l) {
+                    ChooseButton(
+                        image: "party.popper",
+                        title: "I'm a Partyer",
+                        subtitle: "Find the hottest parties wherever you are or create your own Parties.",
+                        disabled: false,
+                        onPress: onboardingViewModel.goToSignup
+                    )
+                    ChooseButton(
+                        image: "wineglass",
+                        title: "I'm an Organiser",
+                        subtitle: "Coming soon...",
+                        disabled: true,
+                        onPress: {}
+                    )
                 }
-                .padding(Padding.l)
-                .background(Color("Background").ignoresSafeArea())
-                .toolbar() {
-                    ToolbarItem(placement: .automatic) {
-                        Button("Skip", action: {
-                            viewStore.send(.skipAuth)
-                        })
-                        .textButton()
+                
+                Spacer()
+                
+                HStack(alignment:.center) {
+                    Text("Already have an Account?")
+                    Button {
+                        onboardingViewModel.goToLogin()
+                    } label: {
+                        Text("Log in")
                     }
                 }
-                .navigationTitle("Get Started")
-                .navigationDestination(
-                    unwrapping: viewStore.binding(get: \.route, send: OnboardingCore.Action.updateRoute),
-                    case: /OnboardingCore.State.Route.signup
-                ) { _ in
-                    IfLetStore(self.store.scope(state: \.signupState, action: OnboardingCore.Action.signup)) { store in
-                       SignupView(store: store)
-                    }
+                .frame(maxWidth: .infinity)
+                
+            }
+            .padding(Padding.l)
+            .background(Color("Background").ignoresSafeArea())
+            .toolbar() {
+                ToolbarItem(placement: .automatic) {
+                    Button("Skip", action: {
+                        onboardingViewModel.skipAuth()
+                    })
+                    .textButton()
                 }
-                .navigationDestination(
-                    unwrapping: viewStore.binding(get: \.route, send: OnboardingCore.Action.updateRoute),
-                    case: /OnboardingCore.State.Route.login
-                ) { _ in
-                    IfLetStore(self.store.scope(state: \.loginState, action: OnboardingCore.Action.login)) { store in
-                       LoginView(store: store)
-                    }
-                }
+            }
+            .navigationTitle("Get Started")
+            .navigationDestination(
+                unwrapping: $onboardingViewModel.destination,
+                case: /OnboardingViewModel.Destination.login
+            ) { $loginViewModel in
+                LoginView(
+                    viewModel: loginViewModel
+                )
+            }
+            .navigationDestination(
+                unwrapping: $onboardingViewModel.destination,
+                case: /OnboardingViewModel.Destination.signup
+            ) { $signupViewModel in
+                SignupView(
+                    viewModel: signupViewModel
+                )
             }
         }
     }
 }
 
 struct ChooseButton: View {
-    let store: StoreOf<OnboardingCore>
     let image: String
     let title: String
     let subtitle: String
     let disabled: Bool
-    let value: OnboardingCore.State.Route
+    let onPress: () -> Void
     
     var body: some View {
         Button {
-            ViewStore(self.store).send(.updateRoute(value))
+            onPress()
         } label: {
             HStack {
                 VStack(alignment: .leading) {
@@ -126,7 +122,7 @@ struct ChooseButton: View {
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingView(
-            store: OnboardingStore(initialState: OnboardingCore.State(), reducer: OnboardingCore())
+            onboardingViewModel: .init()
         )
     }
 }

@@ -3,7 +3,7 @@ plugins {
     id("com.android.library")
     kotlin("native.cocoapods")
     kotlin("plugin.serialization") version Versions.kotlin
-    id("com.squareup.sqldelight") version Versions.sqlDelight
+    id("app.cash.sqldelight") version Versions.sqlDelight
 
     id("com.google.devtools.ksp") version "1.8.0-RC2-1.0.8"
     id("com.rickclephas.kmp.nativecoroutines") version Versions.nativeCoroutines
@@ -25,7 +25,6 @@ kotlin {
         podfile = project.file("../iosApp/Podfile")
         framework {
             baseName = "shared"
-            // required by firebase-auth
             isStatic = true
         }
     }
@@ -63,6 +62,7 @@ kotlin {
 
                 with(Deps.SqlDelight) {
                     implementation(coroutineExtensions)
+                    implementation(adapters)
                 }
 
                 with(Deps.Firebase) {
@@ -84,10 +84,6 @@ kotlin {
                 with(Deps.Ktor) {
                     implementation(clientAndroid)
                 }
-
-                //with(Deps.AndroidX) {
-                //    api(viewmodelLifeCycle)
-                //}
 
                 with(Deps.SqlDelight) {
                     implementation(androidDriver)

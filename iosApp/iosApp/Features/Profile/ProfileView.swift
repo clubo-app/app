@@ -10,24 +10,14 @@ import SwiftUI
 import ComposableArchitecture
 
 struct ProfileView: View {
-    let store: ProfileStore
     
     var body: some View {
-        WithViewStore(self.store) { viewStore in
-            VStack {
-                Text("Profile")
-                Button("Sign Out") {
-                    viewStore.send(.signOut)
-                }
-            }
-        }
+        Text("Profile")
     }
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(
-            store: ProfileStore(initialState: .init(), reducer: ProfileCore())
-        )
+        ProfileView()
     }
 }

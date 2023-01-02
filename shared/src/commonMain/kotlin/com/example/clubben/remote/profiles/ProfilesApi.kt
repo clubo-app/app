@@ -12,7 +12,8 @@ const val PROFILES_PATH = "/profiles"
 class ProfilesApi(
     private val client: HttpClient
 ) : KoinComponent {
-    suspend fun getProfile(id: String): Profile = client.get("$PROFILES_PATH/$id").body<Profile>()
+    suspend fun getProfile(id: String): RemoteProfile =
+        client.get("$PROFILES_PATH/$id").body<RemoteProfile>()
 
     suspend fun usernameExists(username: String) =
         client.get("$PROFILES_PATH/username-taken/$username").body<UsernameTakenResponse>()

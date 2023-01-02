@@ -1,3 +1,5 @@
+import kotlin.Boolean;
+
 CREATE TABLE LocalAccount(
     user_id TEXT PRIMARY KEY NOT NULL,
     email TEXT NOT NULL,

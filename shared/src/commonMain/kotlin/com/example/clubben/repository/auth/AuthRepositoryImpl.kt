@@ -1,13 +1,12 @@
 package com.example.clubben.repository.auth
 
 import co.touchlab.kermit.Logger
-import com.example.clubben.di.ClubbenDatabaseWrapper
+import com.example.clubben.db.ClubbenDatabase
 import com.example.clubben.remote.auth.AuthApi
 import com.example.clubben.remote.auth.RegisterRequest
 import com.example.clubben.remote.auth.RemoteAccount
 import com.example.clubben.remote.profiles.toDBProfile
 import com.example.clubben.utils.ApiError
-import com.example.clubben.utils.DataState
 import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.auth.GoogleAuthProvider
 import dev.gitlive.firebase.auth.auth
@@ -21,9 +20,9 @@ class AuthRepositoryImpl() : KoinComponent, AuthRepository {
     private val logger = Logger.withTag("AuthRepositoryImpl")
 
     private val auth = Firebase.auth
-    private val clubbenDatabase: ClubbenDatabaseWrapper by inject()
-    private val profileQueries = clubbenDatabase.instance?.profileQueries
-    private val accountQueries = clubbenDatabase.instance?.localAccountQueries
+    private val clubbenDatabase: ClubbenDatabase by inject()
+    private val profileQueries = clubbenDatabase.profileQueries
+    private val accountQueries = clubbenDatabase.localAccountQueries
 
     override suspend fun getMe(): RemoteAccount {
         return authApi.me()
@@ -32,7 +31,7 @@ class AuthRepositoryImpl() : KoinComponent, AuthRepository {
     override suspend fun login(
         email: String,
         password: String
-    ): RemoteAccount? {
+    ): RemoteAccount {
         val res = auth.signInWithEmailAndPassword(email, password)
         if (res.user != null) {
             return RemoteAccount(
@@ -41,8 +40,9 @@ class AuthRepositoryImpl() : KoinComponent, AuthRepository {
                 emailVerified = res.user!!.isEmailVerified,
                 providerId = res.user!!.providerId,
             )
+        } else {
+            throw  ApiError(400, "Returned user is null")
         }
-        return null
     }
 
     override suspend fun register(req: RegisterRequest): RemoteAccount {
@@ -51,9 +51,9 @@ class AuthRepositoryImpl() : KoinComponent, AuthRepository {
         val profile = res.account.profile
 
         profile?.let {
-            profileQueries?.insert(it.toDBProfile())
+            profileQueries.insert(it.toDBProfile())
         }
-        accountQueries?.insert(
+        accountQueries.insert(
             res.account.id,
             res.account.email!!,
             res.account.emailVerified,
@@ -69,7 +69,7 @@ class AuthRepositoryImpl() : KoinComponent, AuthRepository {
     override suspend fun googleLogin(
         accessToken: String,
         idToken: String?
-    ): DataState<RemoteAccount, ApiError> {
+    ): RemoteAccount {
         val credential = GoogleAuthProvider.credential(idToken, accessToken)
 
         if (auth.currentUser == null) {
@@ -80,19 +80,15 @@ class AuthRepositoryImpl() : KoinComponent, AuthRepository {
         val res = auth.currentUser?.linkWithCredential(credential)
 
         val user = res?.user
-        return if (user != null) {
-            DataState.Success(
-                RemoteAccount(
-                    id = user.uid,
-                    email = user.email,
-                    emailVerified = user.isEmailVerified,
-                    providerId = user.providerId,
-                )
-            );
-        } else {
-            DataState.Failure(
-                ApiError(message = "Failed to link your Google Account")
+        if (user != null) {
+            return RemoteAccount(
+                id = user.uid,
+                email = user.email,
+                emailVerified = user.isEmailVerified,
+                providerId = user.providerId,
             )
+        } else {
+            throw ApiError(message = "Failed to link your Google Account")
         }
     }
 

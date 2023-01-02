@@ -8,31 +8,26 @@
 
 import SwiftUI
 import SwiftUINavigation
-import ComposableArchitecture
+import KMMViewModelSwiftUI
 import shared
+import AlternativeSheet
 
 struct AppView: View {
-    let store: AppStore
-    @ObservedObject var viewStore: AppViewStore
-   
-    init(store: AppStore) {
-        self.store = store
-        self.viewStore = ViewStore(store)
-        self.viewStore.send(.onInit)
-    }
+    @StateViewModel var viewModel: AppViewModel = AppViewModelHelper().vm()
     
     var body: some View {
         ZStack {
-            MainNavigationView(store: self.store.scope(state: \.authenticated, action: AppCore.Action.authenticated))
-                .sheet(unwrapping: viewStore.binding(get: \.unauthenticated, send: .dismissAuthentication)) { _ in
-                    IfLetStore(self.store.scope(state: \.unauthenticated, action: AppCore.Action.unauthenticated)) { store in
-                        OnboardingView(store: store)
-                    }
-                }
-            ToastView(store: self.store.scope(state: \.toast, action: AppCore.Action.toast))
-        }
-        .task {
-            viewStore.send(.consumeAuthChanges)
+            MainNavigationView(viewModel: .init())
+            .alternativeSheet(
+                isPresented: Binding(get: {viewModel.showAuthFlow}, set: viewModel.setAuthFlow),
+                snaps: [0.95]
+            ) {
+                OnboardingView(onboardingViewModel: .init())
+            }
+            .isDraggable()
+            .dampenDrag()
+            
+            ToastView()
         }
     }
 }
@@ -40,7 +35,7 @@ struct AppView: View {
 struct AppView_Previews: PreviewProvider {
     static var previews: some View {
         AppView(
-            store: AppStore(initialState: AppCore.State(), reducer: AppCore())
+            viewModel: .init()
         )
     }
 }

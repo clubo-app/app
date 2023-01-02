@@ -1,15 +1,15 @@
 package com.example.clubben.remote.particpants
 
 import com.example.clubben.remote.parties.Party
-import com.example.clubben.remote.profiles.Profile
+import com.example.clubben.remote.profiles.RemoteProfile
 import kotlinx.datetime.LocalDateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class PartyInvite(
-    val profile: Profile? = null,
-    val inviter: Profile,
+    val profile: RemoteProfile? = null,
+    val inviter: RemoteProfile,
     val party: Party? = null,
 
     @SerialName("valid_until")
@@ -26,7 +26,7 @@ data class PagedPartyInvites(
 
 @Serializable
 data class PartyParticipant(
-    val profile: Profile,
+    val profile: RemoteProfile,
     val party: Party,
     val requested: Boolean,
 

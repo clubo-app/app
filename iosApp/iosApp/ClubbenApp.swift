@@ -8,20 +8,21 @@
 
 import SwiftUI
 import FirebaseCore
+import shared
 
 @main
 struct ClubbenApp: App {
+    //let viewModel: AppViewModel
     
     init() {
-        let _ = KoinApplication.start()
+        KoinKt.doInitKoin()
         FirebaseApp.configure()
+        //viewModel = AppViewModelHelper().vm()
     }
     
     var body: some Scene {
-        WindowGroup {
-            AppView(
-                store: AppStore(initialState: AppCore.State(), reducer: AppCore())
-            )
+        WindowGroup{
+            AppView()
         }
     }
 }

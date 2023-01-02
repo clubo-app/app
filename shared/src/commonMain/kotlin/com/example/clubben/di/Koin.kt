@@ -1,12 +1,5 @@
 package com.example.clubben.di
 
-import com.example.clubben.domain.auth.GetCurrentAccountUseCase
-import com.example.clubben.domain.auth.LoginUseCase
-import com.example.clubben.domain.auth.RegisterUserCase
-import com.example.clubben.domain.auth.SignOutUseCase
-import com.example.clubben.domain.profile.GetProfileUseCase
-import com.example.clubben.domain.profile.UsernameExistsUseCase
-import com.example.clubben.domain.toast.ToastQueue
 import com.example.clubben.remote.auth.AuthApi
 import com.example.clubben.remote.favorites.FavoritesApi
 import com.example.clubben.remote.friends.FriendsApi
@@ -23,20 +16,24 @@ import com.example.clubben.repository.participants.ParticipantsRepository
 import com.example.clubben.repository.participants.ParticipantsRepositoryImpl
 import com.example.clubben.repository.parties.PartiesRepository
 import com.example.clubben.repository.parties.PartiesRepositoryImpl
-import com.example.clubben.repository.platformModule
 import com.example.clubben.repository.profiles.ProfilesRepository
 import com.example.clubben.repository.profiles.ProfilesRepositoryImpl
 import com.example.clubben.ui.app.AppViewModel
 import com.example.clubben.ui.login.LoginViewModel
-import com.example.clubben.ui.signup.SignupViewModel
+import com.example.clubben.ui.signup.SignUpViewModel
+import com.example.clubben.ui.toast.ToastViewModel
+import com.example.clubben.usecases.auth.GetCurrentAccountUseCase
+import com.example.clubben.usecases.auth.LoginUseCase
+import com.example.clubben.usecases.auth.RegisterUserCase
+import com.example.clubben.usecases.auth.SignOutUseCase
+import com.example.clubben.usecases.profile.GetProfileUseCase
+import com.example.clubben.usecases.profile.UsernameTakenUseCase
 import com.example.clubben.utils.TokenManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
-import org.koin.core.Koin
-import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
 import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.KoinAppDeclaration
@@ -46,8 +43,9 @@ fun initKoin(enableNetworkLogs: Boolean = false, appDeclaration: KoinAppDeclarat
     startKoin {
         appDeclaration()
         modules(
-            platformModule(),
             getBaseModule(),
+            platformModule(),
+            getPlatformModule(),
             getRemoteModule(enableNetworkLogs = enableNetworkLogs),
             getRepositoryModule(),
             getUseCaseModule(),
@@ -56,15 +54,7 @@ fun initKoin(enableNetworkLogs: Boolean = false, appDeclaration: KoinAppDeclarat
     }
 
 // called by iOS
-fun KoinApplication.Companion.start(): KoinApplication = initKoin()
-val Koin.toastQueue: ToastQueue
-    get() = get()
-val Koin.loginViewModel: LoginViewModel
-    get() = get()
-val Koin.appViewModel: AppViewModel
-    get() = get()
-val Koin.signUpViewModel: SignupViewModel
-    get() = get()
+fun initKoin() = initKoin(enableNetworkLogs = false) {}
 
 const val baseUrl = "https://aggregator-service-jonashiltl.cloud.okteto.net"
 
@@ -75,6 +65,11 @@ fun getBaseModule() = module {
     single { createJson() }
     single { CoroutineScope(Dispatchers.Default + SupervisorJob()) }
     single { TokenManager() }
+}
+
+
+fun getPlatformModule() = module {
+    single { createDatabase(get()) }
 }
 
 fun getRemoteModule(enableNetworkLogs: Boolean) = module {
@@ -89,27 +84,32 @@ fun getRemoteModule(enableNetworkLogs: Boolean) = module {
 }
 
 fun getRepositoryModule() = module {
-    factory<AuthRepository> { AuthRepositoryImpl() }
-    factory<FavoritesRepository> { FavoritesRepositoryImpl(get()) }
-    factory<FriendsRepository> { FriendsRepositoryImpl() }
-    factory<ParticipantsRepository> { ParticipantsRepositoryImpl() }
-    factory<PartiesRepository> { PartiesRepositoryImpl() }
-    factory<ProfilesRepository> { ProfilesRepositoryImpl() }
+    single<AuthRepository> { AuthRepositoryImpl() }
+    single<FavoritesRepository> { FavoritesRepositoryImpl(get()) }
+    single<FriendsRepository> { FriendsRepositoryImpl() }
+    single<ParticipantsRepository> { ParticipantsRepositoryImpl() }
+    single<PartiesRepository> { PartiesRepositoryImpl() }
+    single<ProfilesRepository> { ProfilesRepositoryImpl() }
 }
 
 fun getUseCaseModule() = module {
-    single { ToastQueue() }
-    factory { GetCurrentAccountUseCase(get(), get()) }
-    factory { LoginUseCase(get(), get()) }
-    factory { RegisterUserCase(get(), get()) }
-    factory { SignOutUseCase(get()) }
+    // Profile domain
+    factoryOf(::GetProfileUseCase)
+    factoryOf(::UsernameTakenUseCase)
 
-    factory { GetProfileUseCase(get()) }
-    factory { UsernameExistsUseCase(get()) }
+    // Auth domain
+    factoryOf(::GetCurrentAccountUseCase)
+    factoryOf(::LoginUseCase)
+    factoryOf(::RegisterUserCase)
+    factoryOf(::SignOutUseCase)
 }
 
 fun getViewModelModule() = module {
-    single { AppViewModel(get()) }
-    single { LoginViewModel(get(), get()) }
-    single { SignupViewModel(get(), get()) }
+    // shared VM
+    single { ToastViewModel() }
+    single { AppViewModel() }
+
+
+    factory { LoginViewModel() }
+    factory { SignUpViewModel() }
 }

@@ -1,3 +1,5 @@
+import kotlin.Boolean;
+
 CREATE TABLE LocalFriendShipStatus (
     friend_id TEXT PRIMARY KEY,
     is_friend INTEGER AS Boolean NOT NULL,

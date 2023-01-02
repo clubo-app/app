@@ -7,5 +7,5 @@ import com.example.clubben.remote.profiles.UpdateProfileRequest
 interface ProfilesRepository {
     suspend fun getProfile(profileId: String): RemoteProfile
     suspend fun updateAccount(req: UpdateProfileRequest): RemoteAccount
-    suspend fun usernameExists(username: String): Boolean
+    suspend fun usernameTaken(username: String): Boolean
 }

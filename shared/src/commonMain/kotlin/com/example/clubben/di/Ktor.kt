@@ -35,7 +35,7 @@ fun createHttpClient(
     expectSuccess = true
 
     HttpResponseValidator {
-        handleResponseExceptionWithRequest { exception, request ->
+        handleResponseExceptionWithRequest { exception, _ ->
             val clientException =
                 exception as? ClientRequestException ?: return@handleResponseExceptionWithRequest
             val exceptionResponse = clientException.response

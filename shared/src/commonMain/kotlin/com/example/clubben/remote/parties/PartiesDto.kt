@@ -1,6 +1,6 @@
 package com.example.clubben.remote.parties
 
-import com.example.clubben.remote.profiles.Profile
+import com.example.clubben.remote.profiles.RemoteProfile
 import kotlinx.datetime.LocalDateTime
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -12,7 +12,7 @@ data class Party(
     @SerialName("creator_id")
     val creatorId: String,
 
-    val creator: Profile?,
+    val creator: RemoteProfile?,
     val title: String,
     val description: String? = "",
     val lat: Float,

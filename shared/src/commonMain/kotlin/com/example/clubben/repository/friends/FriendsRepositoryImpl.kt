@@ -2,7 +2,7 @@ package com.example.clubben.repository.friends
 
 import co.touchlab.kermit.Logger
 import com.example.clubben.Constants
-import com.example.clubben.di.ClubbenDatabaseWrapper
+import com.example.clubben.db.ClubbenDatabase
 import com.example.clubben.remote.friends.FriendShipStatus
 import com.example.clubben.remote.friends.FriendsApi
 import com.example.clubben.remote.friends.toDBFriendShipStatus
@@ -19,15 +19,15 @@ class FriendsRepositoryImpl() : KoinComponent, FriendsRepository {
 
     private val logger = Logger.withTag("FriendsRepositoryImpl")
 
-    private val clubbenDatabase: ClubbenDatabaseWrapper by inject()
-    private val profileQueries = clubbenDatabase.instance?.profileQueries
-    private val friendShipQueries = clubbenDatabase.instance?.friendShipStatusQueries
+    private val clubbenDatabase: ClubbenDatabase by inject()
+    private val profileQueries = clubbenDatabase.profileQueries
+    private val friendShipQueries = clubbenDatabase.friendShipStatusQueries
 
     override suspend fun createFriendRequest(friendId: String): DataState<FriendShipStatus, ApiError> {
         return catchApiError {
             val friendShipStatus = friendsApi.createFriendRequest(friendId)
 
-            friendShipQueries?.insert(
+            friendShipQueries.insert(
                 friendShipStatus.toDBFriendShipStatus(friendId)
             )
             friendShipStatus
@@ -37,21 +37,21 @@ class FriendsRepositoryImpl() : KoinComponent, FriendsRepository {
     override suspend fun acceptFriendRequest(friendId: String): DataState<Unit, ApiError> {
         return catchApiError {
             friendsApi.acceptFriendRequest(friendId)
-            friendShipQueries?.acceptFriend(friendId, currentTimeWithOffset().toString())
+            friendShipQueries.acceptFriend(friendId, currentTimeWithOffset().toString())
         }
     }
 
     override suspend fun declineFriendRequest(friendId: String): DataState<Unit, ApiError> {
         return catchApiError {
             friendsApi.declineFriendRequest(friendId)
-            friendShipQueries?.delete(friendId)
+            friendShipQueries.delete(friendId)
         }
     }
 
     override suspend fun removeFriend(friendId: String): DataState<Unit, ApiError> {
         return catchApiError {
             friendsApi.removeFriend(friendId)
-            friendShipQueries?.delete(friendId)
+            friendShipQueries.delete(friendId)
         }
     }
 

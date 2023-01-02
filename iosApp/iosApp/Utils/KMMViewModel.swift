@@ -6,4 +6,7 @@
 //  Copyright © 2022 orgName. All rights reserved.
 //
 
-import Foundation
+import KMMViewModelCore
+import shared
+
+extension Kmm_viewmodel_coreKMMViewModel: KMMViewModel { }

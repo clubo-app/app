@@ -2,7 +2,7 @@ package com.example.clubben.repository.parties
 
 import co.touchlab.kermit.Logger
 import com.example.clubben.Constants
-import com.example.clubben.di.ClubbenDatabaseWrapper
+import com.example.clubben.db.ClubbenDatabase
 import com.example.clubben.remote.parties.*
 import com.example.clubben.utils.ApiError
 import com.example.clubben.utils.DataState
@@ -15,13 +15,13 @@ class PartiesRepositoryImpl : KoinComponent, PartiesRepository {
 
     private val logger = Logger.withTag("PartiesRepositoryImpl")
 
-    private val clubbenDatabase: ClubbenDatabaseWrapper by inject()
-    private val partyQueries = clubbenDatabase.instance?.partyQueries
+    private val clubbenDatabase: ClubbenDatabase by inject()
+    private val partyQueries = clubbenDatabase.partyQueries
 
     override suspend fun createParty(req: CreatePartyRequest): DataState<Party, ApiError> {
         return catchApiError {
             val party = partiesApi.createParty(req)
-            partyQueries?.insert(party.toDBParty())
+            partyQueries.insert(party.toDBParty())
             party
         }
     }
@@ -38,7 +38,7 @@ class PartiesRepositoryImpl : KoinComponent, PartiesRepository {
     ): DataState<Party, ApiError> {
         return catchApiError {
             val party = partiesApi.updateParty(partyId, req)
-            partyQueries?.insert(party.toDBParty())
+            partyQueries.insert(party.toDBParty())
             party
         }
     }

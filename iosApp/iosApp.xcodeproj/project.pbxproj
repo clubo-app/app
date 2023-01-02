@@ -10,30 +10,21 @@
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		C560884C5E0E7FE464E2FDC7 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39AE5D9F17B901D48E76F9ED /* Pods_iosApp.framework */; };
+		FB0280DC29587A08009361B9 /* ToastCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0280DB29587A08009361B9 /* ToastCore.swift */; };
 		FB1AF58429196844005F0F20 /* HomeCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1AF58329196844005F0F20 /* HomeCore.swift */; };
 		FB1AF587291968B6005F0F20 /* ProfileCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1AF586291968B6005F0F20 /* ProfileCore.swift */; };
 		FB1AF58A29196902005F0F20 /* MapCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1AF58929196902005F0F20 /* MapCore.swift */; };
 		FB239F9B2922EB9C00C4BF44 /* ClubbenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB239F9A2922EB9C00C4BF44 /* ClubbenApp.swift */; };
 		FB27F2B128DE20330065B84A /* PartyPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27F2B028DE20330065B84A /* PartyPreview.swift */; };
-		FB4A5537293FCEFA00C93C29 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FB4A5536293FCEFA00C93C29 /* FirebaseAnalytics */; };
-		FB4A5539293FCEFA00C93C29 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FB4A5538293FCEFA00C93C29 /* FirebaseAnalyticsSwift */; };
-		FB4A553B293FCEFA00C93C29 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FB4A553A293FCEFA00C93C29 /* FirebaseAuth */; };
+		FB3DCE152958F252009F3F08 /* OnboardingCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3DCE142958F251009F3F08 /* OnboardingCore.swift */; };
 		FB4A553D293FD45A00C93C29 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB4A553C293FD45A00C93C29 /* GoogleService-Info.plist */; };
-		FB587D262936815900151B1E /* AuthDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB587D252936815900151B1E /* AuthDomain.swift */; };
-		FB587D28293681C500151B1E /* AuthDomainLiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB587D27293681C500151B1E /* AuthDomainLiveKey.swift */; };
-		FB587D2C2936936300151B1E /* AuthDomainTestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB587D2B2936936300151B1E /* AuthDomainTestKey.swift */; };
-		FB587D2F29369BDD00151B1E /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB587D2E29369BDD00151B1E /* AuthState.swift */; };
-		FB59480B2916E5A6009A6A1B /* LoginCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59480A2916E5A6009A6A1B /* LoginCore.swift */; };
-		FB5948132916EA25009A6A1B /* SignupCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5948122916EA25009A6A1B /* SignupCore.swift */; };
+		FB545A4C2952350900656D9D /* KMMViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB545A4B2952350900656D9D /* KMMViewModel.swift */; };
+		FB545A4F2952358800656D9D /* KMMViewModelCore in Frameworks */ = {isa = PBXBuildFile; productRef = FB545A4E2952358800656D9D /* KMMViewModelCore */; };
+		FB545A512952358800656D9D /* KMMViewModelSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FB545A502952358800656D9D /* KMMViewModelSwiftUI */; };
 		FB5B473728DF26EF009F01C1 /* StoryAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5B473628DF26EF009F01C1 /* StoryAvatar.swift */; };
 		FB5E6BCF2919749300F97D91 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5E6BCE2919749300F97D91 /* AppView.swift */; };
-		FB5E6BD22919760800F97D91 /* OnboardingCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5E6BD12919760800F97D91 /* OnboardingCore.swift */; };
 		FB5E6BD42919764500F97D91 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5E6BD32919764500F97D91 /* OnboardingView.swift */; };
-		FB5E6BD62919864800F97D91 /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5E6BD52919864800F97D91 /* Koin.swift */; };
-		FB639F7229171EDE00E51D1C /* ToastCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB639F7129171EDE00E51D1C /* ToastCore.swift */; };
 		FB639F74291721EC00E51D1C /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB639F73291721EC00E51D1C /* ToastView.swift */; };
-		FB642F442925721D00ECA754 /* clubben_shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB642F432925721D00ECA754 /* clubben_shared.swift */; };
-		FB6A1FDE2917E67800D27494 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A1FDD2917E67800D27494 /* AppCore.swift */; };
 		FB6A1FE02917EA1C00D27494 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A1FDF2917EA1C00D27494 /* SignupView.swift */; };
 		FB756964292FF6FB00A359B1 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB756963292FF6FB00A359B1 /* MapView.swift */; };
 		FB756966292FF79D00A359B1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB756965292FF79D00A359B1 /* ProfileView.swift */; };
@@ -46,15 +37,14 @@
 		FB82293A28F0D0C000C997A7 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB82293928F0D0C000C997A7 /* Text.swift */; };
 		FB82293C28F0D5F300C997A7 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB82293B28F0D5F300C997A7 /* Button.swift */; };
 		FB8548C928F31BE0000F4594 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8548C828F31BE0000F4594 /* Constants.swift */; };
-		FB93788F2937FBCB008A5C83 /* ToastQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93788E2937FBCA008A5C83 /* ToastQueue.swift */; };
-		FB9378912937FEE8008A5C83 /* ToastQueueLiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9378902937FEE8008A5C83 /* ToastQueueLiveKey.swift */; };
+		FB8FA23F295B5E4100EDB618 /* RoundedCornerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8FA23E295B5E4100EDB618 /* RoundedCornerShape.swift */; };
 		FBA46D5A2952024500C50DD4 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA46D592952024500C50DD4 /* FrameView.swift */; };
 		FBA46D5C295202F300C50DD4 /* FrameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA46D5B295202F300C50DD4 /* FrameHandler.swift */; };
 		FBA46D5E2952075A00C50DD4 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA46D5D2952075A00C50DD4 /* CameraView.swift */; };
-		FBB0B46829257CB500908C9A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = FBB0B46729257CB500908C9A /* ComposableArchitecture */; };
 		FBB0B46A2925800900908C9A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB0B4692925800900908C9A /* HomeView.swift */; };
 		FBC9830D294511190044EFB2 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9830C294511190044EFB2 /* Binding.swift */; };
 		FBE81A6F291C5904006AABAC /* SwiftUINavigation in Frameworks */ = {isa = PBXBuildFile; productRef = FBE81A6E291C5904006AABAC /* SwiftUINavigation */; };
+		FBFEEA62295FB0C60046BAD1 /* AlternativeSheet in Frameworks */ = {isa = PBXBuildFile; productRef = FBFEEA61295FB0C60046BAD1 /* AlternativeSheet */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,27 +55,20 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE17C1399475C21097D6EA4A /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
+		FB0280DB29587A08009361B9 /* ToastCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastCore.swift; sourceTree = "<group>"; };
+		FB1A16B4295B96A1002F9D2E /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1AF58329196844005F0F20 /* HomeCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCore.swift; sourceTree = "<group>"; };
 		FB1AF586291968B6005F0F20 /* ProfileCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCore.swift; sourceTree = "<group>"; };
 		FB1AF58929196902005F0F20 /* MapCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCore.swift; sourceTree = "<group>"; };
 		FB239F9A2922EB9C00C4BF44 /* ClubbenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubbenApp.swift; sourceTree = "<group>"; };
 		FB27F2B028DE20330065B84A /* PartyPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyPreview.swift; sourceTree = "<group>"; };
+		FB3DCE142958F251009F3F08 /* OnboardingCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCore.swift; sourceTree = "<group>"; };
 		FB4A553C293FD45A00C93C29 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		FB587D252936815900151B1E /* AuthDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDomain.swift; sourceTree = "<group>"; };
-		FB587D27293681C500151B1E /* AuthDomainLiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDomainLiveKey.swift; sourceTree = "<group>"; };
-		FB587D2B2936936300151B1E /* AuthDomainTestKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDomainTestKey.swift; sourceTree = "<group>"; };
-		FB587D2E29369BDD00151B1E /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
-		FB59480A2916E5A6009A6A1B /* LoginCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCore.swift; sourceTree = "<group>"; };
-		FB5948122916EA25009A6A1B /* SignupCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCore.swift; sourceTree = "<group>"; };
+		FB545A4B2952350900656D9D /* KMMViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMMViewModel.swift; sourceTree = "<group>"; };
 		FB5B473628DF26EF009F01C1 /* StoryAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryAvatar.swift; sourceTree = "<group>"; };
 		FB5E6BCE2919749300F97D91 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
-		FB5E6BD12919760800F97D91 /* OnboardingCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCore.swift; sourceTree = "<group>"; };
 		FB5E6BD32919764500F97D91 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		FB5E6BD52919864800F97D91 /* Koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
-		FB639F7129171EDE00E51D1C /* ToastCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastCore.swift; sourceTree = "<group>"; };
 		FB639F73291721EC00E51D1C /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
-		FB642F432925721D00ECA754 /* clubben_shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = clubben_shared.swift; path = ../../shared/build/cocoapods/framework/sharedSwift/clubben_shared.swift; sourceTree = "<group>"; };
-		FB6A1FDD2917E67800D27494 /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
 		FB6A1FDF2917EA1C00D27494 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		FB756963292FF6FB00A359B1 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		FB756965292FF79D00A359B1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -98,8 +81,7 @@
 		FB82293928F0D0C000C997A7 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		FB82293B28F0D5F300C997A7 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		FB8548C828F31BE0000F4594 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		FB93788E2937FBCA008A5C83 /* ToastQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastQueue.swift; sourceTree = "<group>"; };
-		FB9378902937FEE8008A5C83 /* ToastQueueLiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastQueueLiveKey.swift; sourceTree = "<group>"; };
+		FB8FA23E295B5E4100EDB618 /* RoundedCornerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerShape.swift; sourceTree = "<group>"; };
 		FBA46D592952024500C50DD4 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
 		FBA46D5B295202F300C50DD4 /* FrameHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameHandler.swift; sourceTree = "<group>"; };
 		FBA46D5D2952075A00C50DD4 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
@@ -112,12 +94,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB545A4F2952358800656D9D /* KMMViewModelCore in Frameworks */,
 				FBE81A6F291C5904006AABAC /* SwiftUINavigation in Frameworks */,
-				FB4A553B293FCEFA00C93C29 /* FirebaseAuth in Frameworks */,
+				FBFEEA62295FB0C60046BAD1 /* AlternativeSheet in Frameworks */,
 				C560884C5E0E7FE464E2FDC7 /* Pods_iosApp.framework in Frameworks */,
-				FB4A5537293FCEFA00C93C29 /* FirebaseAnalytics in Frameworks */,
-				FBB0B46829257CB500908C9A /* ComposableArchitecture in Frameworks */,
-				FB4A5539293FCEFA00C93C29 /* FirebaseAnalyticsSwift in Frameworks */,
+				FB545A512952358800656D9D /* KMMViewModelSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +116,6 @@
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
-				FB642F42292571A500ECA754 /* kswift */,
 				7555FF7D242A565900829871 /* iosApp */,
 				7555FF7C242A565900829871 /* Products */,
 				B16CBBD43608C5DB81788D20 /* Pods */,
@@ -154,7 +134,6 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				FB7FE1DA2918553E00B127D3 /* Dependencies */,
 				FB5948082916E48B009A6A1B /* Features */,
 				FB76B52A28F7077000CD5C98 /* Utils */,
 				FB82293828F0D09C00C997A7 /* styles */,
@@ -171,6 +150,7 @@
 		9D803631F01803CFE1F081C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB1A16B4295B96A1002F9D2E /* FirebaseAuth.framework */,
 				39AE5D9F17B901D48E76F9ED /* Pods_iosApp.framework */,
 			);
 			name = Frameworks;
@@ -222,24 +202,6 @@
 			path = components;
 			sourceTree = "<group>";
 		};
-		FB587D242936814200151B1E /* AuthDomain */ = {
-			isa = PBXGroup;
-			children = (
-				FB587D252936815900151B1E /* AuthDomain.swift */,
-				FB587D27293681C500151B1E /* AuthDomainLiveKey.swift */,
-				FB587D2B2936936300151B1E /* AuthDomainTestKey.swift */,
-			);
-			path = AuthDomain;
-			sourceTree = "<group>";
-		};
-		FB587D2D29369A1B00151B1E /* AuthState */ = {
-			isa = PBXGroup;
-			children = (
-				FB587D2E29369BDD00151B1E /* AuthState.swift */,
-			);
-			path = AuthState;
-			sourceTree = "<group>";
-		};
 		FB5948082916E48B009A6A1B /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,7 +222,6 @@
 		FB5948092916E55D009A6A1B /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				FB59480A2916E5A6009A6A1B /* LoginCore.swift */,
 				FB7FE1D8291827D900B127D3 /* LoginView.swift */,
 			);
 			path = Login;
@@ -269,7 +230,6 @@
 		FB5948112916E9E3009A6A1B /* Signup */ = {
 			isa = PBXGroup;
 			children = (
-				FB5948122916EA25009A6A1B /* SignupCore.swift */,
 				FB6A1FDF2917EA1C00D27494 /* SignupView.swift */,
 			);
 			path = Signup;
@@ -278,7 +238,7 @@
 		FB5E6BD0291975F400F97D91 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				FB5E6BD12919760800F97D91 /* OnboardingCore.swift */,
+				FB3DCE142958F251009F3F08 /* OnboardingCore.swift */,
 				FB5E6BD32919764500F97D91 /* OnboardingView.swift */,
 			);
 			path = Onboarding;
@@ -287,24 +247,15 @@
 		FB639F7029171EBD00E51D1C /* Toast */ = {
 			isa = PBXGroup;
 			children = (
-				FB639F7129171EDE00E51D1C /* ToastCore.swift */,
 				FB639F73291721EC00E51D1C /* ToastView.swift */,
+				FB0280DB29587A08009361B9 /* ToastCore.swift */,
 			);
 			path = Toast;
-			sourceTree = "<group>";
-		};
-		FB642F42292571A500ECA754 /* kswift */ = {
-			isa = PBXGroup;
-			children = (
-				FB642F432925721D00ECA754 /* clubben_shared.swift */,
-			);
-			path = kswift;
 			sourceTree = "<group>";
 		};
 		FB6A1FDC2917E5E400D27494 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				FB6A1FDD2917E67800D27494 /* AppCore.swift */,
 				FB5E6BCE2919749300F97D91 /* AppView.swift */,
 			);
 			path = App;
@@ -313,21 +264,11 @@
 		FB76B52A28F7077000CD5C98 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				FB5E6BD52919864800F97D91 /* Koin.swift */,
 				FB76B52B28F7078A00CD5C98 /* ApplicationUtility.swift */,
 				FBC9830C294511190044EFB2 /* Binding.swift */,
+				FB545A4B2952350900656D9D /* KMMViewModel.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		FB7FE1DA2918553E00B127D3 /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-				FB93788D2937FBAC008A5C83 /* ToastQueue */,
-				FB587D2D29369A1B00151B1E /* AuthState */,
-				FB587D242936814200151B1E /* AuthDomain */,
-			);
-			path = Dependencies;
 			sourceTree = "<group>";
 		};
 		FB81C5B9292BFE4D00A5A939 /* MainNavigation */ = {
@@ -342,21 +283,13 @@
 		FB82293828F0D09C00C997A7 /* styles */ = {
 			isa = PBXGroup;
 			children = (
+				FB8FA23E295B5E4100EDB618 /* RoundedCornerShape.swift */,
 				FB82293928F0D0C000C997A7 /* Text.swift */,
 				FB82293B28F0D5F300C997A7 /* Button.swift */,
 				FB78DBDC28F226CA00D8C387 /* TextField.swift */,
 				FB8548C828F31BE0000F4594 /* Constants.swift */,
 			);
 			path = styles;
-			sourceTree = "<group>";
-		};
-		FB93788D2937FBAC008A5C83 /* ToastQueue */ = {
-			isa = PBXGroup;
-			children = (
-				FB93788E2937FBCA008A5C83 /* ToastQueue.swift */,
-				FB9378902937FEE8008A5C83 /* ToastQueueLiveKey.swift */,
-			);
-			path = ToastQueue;
 			sourceTree = "<group>";
 		};
 		FBA46D582952022F00C50DD4 /* Camera */ = {
@@ -389,10 +322,9 @@
 			name = iosApp;
 			packageProductDependencies = (
 				FBE81A6E291C5904006AABAC /* SwiftUINavigation */,
-				FBB0B46729257CB500908C9A /* ComposableArchitecture */,
-				FB4A5536293FCEFA00C93C29 /* FirebaseAnalytics */,
-				FB4A5538293FCEFA00C93C29 /* FirebaseAnalyticsSwift */,
-				FB4A553A293FCEFA00C93C29 /* FirebaseAuth */,
+				FB545A4E2952358800656D9D /* KMMViewModelCore */,
+				FB545A502952358800656D9D /* KMMViewModelSwiftUI */,
+				FBFEEA61295FB0C60046BAD1 /* AlternativeSheet */,
 			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* iosApp.app */;
@@ -424,8 +356,8 @@
 			mainGroup = 7555FF72242A565900829871;
 			packageReferences = (
 				FBE81A6D291C5904006AABAC /* XCRemoteSwiftPackageReference "swiftui-navigation" */,
-				FBE81A70291C5938006AABAC /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
-				FB4A5535293FCEFA00C93C29 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FB545A4D2952358800656D9D /* XCRemoteSwiftPackageReference "KMM-ViewModel" */,
+				FBFEEA60295FB0C60046BAD1 /* XCRemoteSwiftPackageReference "AlternativeSheet" */,
 			);
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
 			projectDirPath = "";
@@ -498,42 +430,33 @@
 			files = (
 				FBA46D5C295202F300C50DD4 /* FrameHandler.swift in Sources */,
 				FB6A1FE02917EA1C00D27494 /* SignupView.swift in Sources */,
-				FB587D28293681C500151B1E /* AuthDomainLiveKey.swift in Sources */,
 				FBB0B46A2925800900908C9A /* HomeView.swift in Sources */,
-				FB587D2F29369BDD00151B1E /* AuthState.swift in Sources */,
 				FB1AF587291968B6005F0F20 /* ProfileCore.swift in Sources */,
-				FB639F7229171EDE00E51D1C /* ToastCore.swift in Sources */,
-				FB587D262936815900151B1E /* AuthDomain.swift in Sources */,
 				FB5E6BCF2919749300F97D91 /* AppView.swift in Sources */,
-				FB93788F2937FBCB008A5C83 /* ToastQueue.swift in Sources */,
+				FB3DCE152958F252009F3F08 /* OnboardingCore.swift in Sources */,
 				FB78DBDD28F226CA00D8C387 /* TextField.swift in Sources */,
-				FB59480B2916E5A6009A6A1B /* LoginCore.swift in Sources */,
-				FB642F442925721D00ECA754 /* clubben_shared.swift in Sources */,
-				FB5E6BD62919864800F97D91 /* Koin.swift in Sources */,
-				FB9378912937FEE8008A5C83 /* ToastQueueLiveKey.swift in Sources */,
 				FBA46D5E2952075A00C50DD4 /* CameraView.swift in Sources */,
 				FB239F9B2922EB9C00C4BF44 /* ClubbenApp.swift in Sources */,
 				FB756964292FF6FB00A359B1 /* MapView.swift in Sources */,
 				FB27F2B128DE20330065B84A /* PartyPreview.swift in Sources */,
 				FB8548C928F31BE0000F4594 /* Constants.swift in Sources */,
 				FB639F74291721EC00E51D1C /* ToastView.swift in Sources */,
-				FB5E6BD22919760800F97D91 /* OnboardingCore.swift in Sources */,
 				FB7FDCB528DF785200E6A204 /* HorizontalPartyPreview.swift in Sources */,
-				FB6A1FDE2917E67800D27494 /* AppCore.swift in Sources */,
 				FB1AF58A29196902005F0F20 /* MapCore.swift in Sources */,
-				FB587D2C2936936300151B1E /* AuthDomainTestKey.swift in Sources */,
 				FB82293A28F0D0C000C997A7 /* Text.swift in Sources */,
 				FBA46D5A2952024500C50DD4 /* FrameView.swift in Sources */,
-				FB5948132916EA25009A6A1B /* SignupCore.swift in Sources */,
 				FB7FE1D9291827D900B127D3 /* LoginView.swift in Sources */,
 				FB5E6BD42919764500F97D91 /* OnboardingView.swift in Sources */,
 				FB756966292FF79D00A359B1 /* ProfileView.swift in Sources */,
 				FB81C5BB292BFE6E00A5A939 /* MainNavigationView.swift in Sources */,
+				FB8FA23F295B5E4100EDB618 /* RoundedCornerShape.swift in Sources */,
 				FB1AF58429196844005F0F20 /* HomeCore.swift in Sources */,
 				FBC9830D294511190044EFB2 /* Binding.swift in Sources */,
+				FB0280DC29587A08009361B9 /* ToastCore.swift in Sources */,
 				FB82293C28F0D5F300C997A7 /* Button.swift in Sources */,
 				FB81C5BD292C004300A5A939 /* MainNavigationCore.swift in Sources */,
 				FB5B473728DF26EF009F01C1 /* StoryAvatar.swift in Sources */,
+				FB545A4C2952350900656D9D /* KMMViewModel.swift in Sources */,
 				FB76B52C28F7078A00CD5C98 /* ApplicationUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -668,6 +591,30 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 2DYD47YJQ3;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreInternal\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KMPNativeCoroutinesAsync\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KMPNativeCoroutinesCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC\"",
+					"\"${PODS_ROOT}/../../shared/build/cocoapods/framework\"",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreInternal\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KMPNativeCoroutinesAsync\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KMPNativeCoroutinesCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC\"",
+					"\"${PODS_ROOT}/../../shared/build/cocoapods/framework\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = iosApp/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -701,6 +648,18 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 2DYD47YJQ3;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreInternal\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KMPNativeCoroutinesAsync\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KMPNativeCoroutinesCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC\"",
+					"\"${PODS_ROOT}/../../shared/build/cocoapods/framework\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = iosApp/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -747,12 +706,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FB4A5535293FCEFA00C93C29 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		FB545A4D2952358800656D9D /* XCRemoteSwiftPackageReference "KMM-ViewModel" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			repositoryURL = "https://github.com/rickclephas/KMM-ViewModel.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = exactVersion;
+				version = "1.0.0-ALPHA-2";
 			};
 		};
 		FBE81A6D291C5904006AABAC /* XCRemoteSwiftPackageReference "swiftui-navigation" */ = {
@@ -763,41 +722,36 @@
 				kind = branch;
 			};
 		};
-		FBE81A70291C5938006AABAC /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		FBFEEA60295FB0C60046BAD1 /* XCRemoteSwiftPackageReference "AlternativeSheet" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			repositoryURL = "https://github.com/JonasHiltl/AlternativeSheet";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FB4A5536293FCEFA00C93C29 /* FirebaseAnalytics */ = {
+		FB545A4E2952358800656D9D /* KMMViewModelCore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FB4A5535293FCEFA00C93C29 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
+			package = FB545A4D2952358800656D9D /* XCRemoteSwiftPackageReference "KMM-ViewModel" */;
+			productName = KMMViewModelCore;
 		};
-		FB4A5538293FCEFA00C93C29 /* FirebaseAnalyticsSwift */ = {
+		FB545A502952358800656D9D /* KMMViewModelSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FB4A5535293FCEFA00C93C29 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalyticsSwift;
-		};
-		FB4A553A293FCEFA00C93C29 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FB4A5535293FCEFA00C93C29 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		FBB0B46729257CB500908C9A /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FBE81A70291C5938006AABAC /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
+			package = FB545A4D2952358800656D9D /* XCRemoteSwiftPackageReference "KMM-ViewModel" */;
+			productName = KMMViewModelSwiftUI;
 		};
 		FBE81A6E291C5904006AABAC /* SwiftUINavigation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FBE81A6D291C5904006AABAC /* XCRemoteSwiftPackageReference "swiftui-navigation" */;
 			productName = SwiftUINavigation;
+		};
+		FBFEEA61295FB0C60046BAD1 /* AlternativeSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBFEEA60295FB0C60046BAD1 /* XCRemoteSwiftPackageReference "AlternativeSheet" */;
+			productName = AlternativeSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

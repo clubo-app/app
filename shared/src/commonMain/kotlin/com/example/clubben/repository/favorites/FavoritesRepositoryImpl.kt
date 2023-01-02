@@ -2,7 +2,7 @@ package com.example.clubben.repository.favorites
 
 import co.touchlab.kermit.Logger
 import com.example.clubben.Constants
-import com.example.clubben.di.ClubbenDatabaseWrapper
+import com.example.clubben.db.ClubbenDatabase
 import com.example.clubben.remote.favorites.FavoriteParty
 import com.example.clubben.remote.favorites.FavoritesApi
 import com.example.clubben.remote.favorites.toDBFavoriteParty
@@ -22,14 +22,14 @@ class FavoritesRepositoryImpl(
 
     private val logger = Logger.withTag("FavoritesRepositoryImpl")
 
-    private val clubbenDatabase: ClubbenDatabaseWrapper by inject()
-    private val favoritePartyQueries = clubbenDatabase.instance?.favoritePartyQueries
+    private val clubbenDatabase: ClubbenDatabase by inject()
+    private val favoritePartyQueries = clubbenDatabase.favoritePartyQueries
 
 
     override suspend fun favorParty(partyId: String): DataState<FavoriteParty, ApiError> {
         return catchApiError {
             val res = favoritesApi.favorParty(partyId)
-            favoritePartyQueries?.insert(res.toDBFavoriteParty())
+            favoritePartyQueries.insert(res.toDBFavoriteParty())
             res
         }
     }
@@ -37,7 +37,7 @@ class FavoritesRepositoryImpl(
     override suspend fun defavorParty(partyId: String): DataState<Unit, ApiError> {
         return catchApiError {
             favoritesApi.defavorParty(partyId)
-            favoritePartyQueries?.delete(partyId)
+            favoritePartyQueries.delete(partyId)
         }
     }
 

@@ -7,20 +7,17 @@
 //
 
 import SwiftUI
-import ComposableArchitecture
+import MapKit
 
 struct MapView: View {
-    let store: MapStore
-    
     var body: some View {
+       Map
         Text("Map")
     }
 }
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(
-            store: MapStore(initialState: .init(), reducer: MapCore())
-        )
+        MapView()
     }
 }

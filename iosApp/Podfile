@@ -3,5 +3,6 @@ target 'iosApp' do
   platform :ios, '14.1'
   pod 'shared', :path => '../shared'
   
-  pod 'KMPNativeCoroutinesAsync', '0.12.5'
+  pod 'KMPNativeCoroutinesAsync', '1.0.0-ALPHA-3'
+  pod 'FirebaseAuth', '~> 8.15.0'
 end

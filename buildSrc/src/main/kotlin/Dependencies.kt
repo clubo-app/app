@@ -7,7 +7,7 @@ object Versions {
     const val kotlinxSerialization = "1.3.3"
     const val kotlinxDateTime = "0.4.0"
 
-    const val sqlDelight = "1.5.3"
+    const val sqlDelight = "2.0.0-alpha04"
 
     const val nativeCoroutines = "1.0.0-ALPHA-3"
     const val kmmViewmodel = "1.0.0-ALPHA-2-kotlin-1.8.0-RC2"
@@ -77,9 +77,12 @@ object Deps {
 
     object SqlDelight {
         const val coroutineExtensions =
-            "com.squareup.sqldelight:coroutines-extensions:${Versions.sqlDelight}"
-        const val androidDriver = "com.squareup.sqldelight:android-driver:${Versions.sqlDelight}"
-        const val nativeDriver = "com.squareup.sqldelight:native-driver:${Versions.sqlDelight}"
+            "app.cash.sqldelight:coroutines-extensions:${Versions.sqlDelight}"
+        const val androidDriver =
+            "app.cash.sqldelight:android-driver:${Versions.sqlDelight}"
+        const val nativeDriver =
+            "app.cash.sqldelight:native-driver:${Versions.sqlDelight}"
+        const val adapters = "app.cash.sqldelight:primitive-adapters:${Versions.sqlDelight}"
     }
 
     object Firebase {

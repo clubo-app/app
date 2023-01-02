@@ -1,3 +1,7 @@
+import kotlin.Boolean;
+import kotlin.Int;
+import kotlin.Float;
+
 CREATE TABLE LocalParty (
     party_id TEXT PRIMARY KEY,
     creator_id TEXT NOT NULL,
